@@ -1,5 +1,5 @@
 import numpy as np
-from sklearn import preprocessing, neighbors, model_selection
+from sklearn import preprocessing, neighbors, model_selection, svm
 from sklearn.model_selection import train_test_split, cross_validate
 import pandas as pd
 
@@ -14,6 +14,7 @@ y = np.array(df['class'])
 X_train, X_test, y_train, y_test = model_selection.train_test_split(X,y,test_size=0.2)
 
 clf = neighbors.KNeighborsClassifier()
+#clf = svm.SVC() #for support vector machine
 clf.fit(X_train, y_train)
 
 accuracy = clf.score(X_test, y_test)
